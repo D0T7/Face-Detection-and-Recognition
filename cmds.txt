@@ -1,0 +1,15 @@
+1)GO TO FILE DIRECTORY
+cd.\machine_learning\PyPower_face-recognition
+
+2)FOR EMBEDDING AND IMAGE PROCESSING
+python extract_embeddings.py --dataset dataset --embeddings output/faceEmbed.pickle --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7
+
+3)FOR TRANING OF MODEL
+python train_model.py --embeddings output/faceEmbed.pickle --recognizer output/recognizer.pickle --le output/label.pickle
+
+4)FOR RECOGNISING IMAGES
+python recognize.py --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/label.pickle --image images/
+
+5)FOR WEBCAM
+python recognize_video.py --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/label.pickle
+
